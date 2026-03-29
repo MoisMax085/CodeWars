@@ -141,3 +141,77 @@ def get_middle(s):
 # Odd or Even?
 def odd_or_even(arr):
     return "odd" if sum(arr) % 2 == 1 else "even"
+
+
+# String ends with?
+def solution(text, ending):
+    return True if text[len(text)-len(ending):] == ending else False
+
+
+# Opposite number
+def opposite(number):
+  return -1*number
+
+
+# Is a number prime?
+def is_prime(num):
+    if num <= 1: return False
+    if num == 2: return True
+    for i in range(2, int(num**0.5)+2):
+        if num % i == 0: return False
+    return True
+
+
+# Stop gninnipS My sdroW!
+def spin_words(sentence):
+    arr, st = sentence.split(" "), ""
+    for x in arr:
+        if len(x) >= 5:st += x[::-1] + " "
+        else:st += x + " "
+    return st[:-1]
+
+
+# Rot13
+def rot13(message):
+    alphabet_lower = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
+    alphabet_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    new_message = ""
+    for i in message:
+        if i in alphabet_lower:
+            new_message += alphabet_lower[alphabet_lower.index(i) + 13]
+        elif i in alphabet_upper:
+            new_message += alphabet_upper[alphabet_upper.index(i) + 13]
+        else:
+            new_message += i
+    return new_message
+
+
+# First non-repeating character
+def first_non_repeating_letter(s):
+    for i in range(len(s.lower())):
+        if s.lower().count(s.lower()[i]) == 1: return s[i]
+    return ""
+
+
+# Scramblies
+def scramble(s1, s2):
+    for i in set(s2):
+        if s2.count(i) > s1.count(i): return False
+    return True
+
+
+# Sum of a sequence
+def sequence_sum(begin_number, end_number, step):
+    return sum([x for x in range(begin_number, end_number+1, step)])
+
+
+#Extract the domain name from a URL
+def domain_name(url):
+    return url.replace("http://", "https://").replace("https://", "").replace("www.", "")[:url.replace("http://", "https://").replace("https://", "").replace("www.", "").index(".")]
+
+
+# Make Me Slow
+import time
+def make_me_slow():
+    time.sleep(7)
+    pass
